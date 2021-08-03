@@ -8,21 +8,32 @@
             v-for="course in courses"
             :key="course.id"
             :course="course"
-            color="pink"
+            color="#bde0fe"
         ></CourseCard>
 
       </template>
     </LTwoColumns>
   </div>
   <div>
-  <Button name="see more"></Button>
-  <Button name="click here"></Button>
-  <Button name="submit"></Button>
+    <Button name="see more"></Button>
+    <Button name="click here"></Button>
+    <Button name="submit"></Button>
   </div>
+  <section>
+
+    <LTwoToOne>
+      <template v-slot:two>
+        <LearningObjectives></LearningObjectives>
+      </template>
+    </LTwoToOne>
+  </section>
+
 
 </template>
 
 <script>
+import LTwoToOne from "../components/layoutComponents/LTwoToOne";
+import LearningObjectives from "../components/LearningObjectives";
 import Button from "../components/buttons/Button";
 import CourseCard from "../components/courseCard/CourseCard";
 import {ref} from "@vue/reactivity";
@@ -34,6 +45,8 @@ export default {
     CourseCard,
     LTwoColumns,
     Button,
+    LearningObjectives,
+    LTwoToOne
   },
 
   setup() {
@@ -61,5 +74,7 @@ export default {
 </script>
 
 <style scoped>
+
+
 
 </style>
