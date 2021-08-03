@@ -46,10 +46,20 @@
     </template>
   </LFourColumns>
 
+  <LTwoToOne>
+    <template v-slot:test>
+      <ModalCard>
+        <template v-slot:content>
+        <p>testing testing</p>
+        </template>
+      </ModalCard>
+    </template>
+  </LTwoToOne>
 
 </template>
 
 <script>
+import LTwoToOne from "../components/layoutComponents/LTwoToOne";
 import LFourColumns from "../components/layoutComponents/LFourColumns";
 import LTwoColumns from "../components/layoutComponents/LTwoColumns";
 import ModalCard from "../components/ModalCard";
@@ -60,6 +70,7 @@ export default {
     ModalCard,
     LTwoColumns,
     LFourColumns,
+    LTwoToOne,
   }
 }
 </script>
