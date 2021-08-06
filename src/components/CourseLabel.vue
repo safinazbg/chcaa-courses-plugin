@@ -1,5 +1,7 @@
 <template>
-  <span class=" label uk-label">Default</span>
+  <span class=" label uk-label">
+    <slot></slot>
+  </span>
 </template>
 
 <script>
