@@ -1,14 +1,16 @@
 <template>
-<div class="iconAndContent">
-  <div class="icon">
-    <span class="uk-icon" uk-icon="check"></span>
-  </div>
-  <div class="content">
-    <slot name="content">
+  <div class="iconAndContent">
+    <div class="icon">
+      <slot name="icon">
 
-    </slot>
+      </slot>
+    </div>
+    <div class="content">
+      <slot name="content">
+
+      </slot>
+    </div>
   </div>
-</div>
 </template>
 
 <script>
