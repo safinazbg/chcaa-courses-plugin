@@ -1,8 +1,9 @@
 <template>
   <div class="card" :style="{backgroundColor: color}">
-    <slot name="content">
+    <slot name="title"></slot>
 
-    </slot>
+    <slot name="content"></slot>
+
   </div>
 
 </template>
