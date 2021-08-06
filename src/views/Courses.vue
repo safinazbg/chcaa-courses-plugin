@@ -14,11 +14,6 @@
       </template>
     </LTwoColumns>
   </div>
-  <div>
-    <Button name="see more"></Button>
-    <Button name="click here"></Button>
-    <Button name="submit"></Button>
-  </div>
   <section>
 
     <LTwoToOne>
@@ -28,13 +23,11 @@
     </LTwoToOne>
   </section>
 
-
 </template>
 
 <script>
 import LTwoToOne from "../components/layoutComponents/LTwoToOne";
-import LearningObjectives from "../components/LearningObjectives";
-import Button from "../components/buttons/Button";
+import LearningObjectives from "../components/course/CourseLearningObjectives";
 import CourseCard from "../components/courseCard/CourseCard";
 import {ref} from "@vue/reactivity";
 import LTwoColumns from "../components/layoutComponents/LTwoColumns";
@@ -44,7 +37,6 @@ export default {
   components: {
     CourseCard,
     LTwoColumns,
-    Button,
     LearningObjectives,
     LTwoToOne
   },

@@ -28,7 +28,7 @@
     <template v-slot:gridItems>
       <ModalCard color="yellow">
         <template v-slot:content>
-        <h2>Something new</h2>
+          <h2>Something new</h2>
         </template>
       </ModalCard>
       <ModalCard>
@@ -47,18 +47,16 @@
   </LFourColumns>
 
   <LTwoToOne>
-    <template v-slot:test>
-      <ModalCard>
-        <template v-slot:content>
-        <p>testing testing</p>
-        </template>
-      </ModalCard>
+    <template v-slot:two>
+      <Prerequisites class="uk-background-muted"></Prerequisites>
     </template>
   </LTwoToOne>
+
 
 </template>
 
 <script>
+import Prerequisites from "../components/Prerequisites";
 import LTwoToOne from "../components/layoutComponents/LTwoToOne";
 import LFourColumns from "../components/layoutComponents/LFourColumns";
 import LTwoColumns from "../components/layoutComponents/LTwoColumns";
@@ -71,6 +69,7 @@ export default {
     LTwoColumns,
     LFourColumns,
     LTwoToOne,
+    Prerequisites,
   }
 }
 </script>
