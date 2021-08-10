@@ -19,7 +19,7 @@ const routes = [
   {
     name: 'courseModule',
     path: '/module/:moduleName',
-    component: () => import(/* webpackChunkName: "course" */ '../components/course/courseModule/CourseModule.vue'),
+    component: () => import(/* webpackChunkName: "course" */ '../components/course/courseModule/CourseModuleLanding.vue'),
     props: true
   },
   {
