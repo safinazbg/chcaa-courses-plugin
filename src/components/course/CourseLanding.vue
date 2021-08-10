@@ -1,9 +1,10 @@
 <template>
-  <LLandingPage>
+  <div class="courseLanding">
+    <LLandingPage>
 
-    <template v-slot:page>
+      <template v-slot:page>
 
-      <div class="courseLanding">
+
         <LSections>
 
           <template v-slot:sections>
@@ -20,11 +21,10 @@
           </template>
 
         </LSections>
-      </div>
+      </template>
 
-    </template>
-
-  </LLandingPage>
+    </LLandingPage>
+  </div>
 </template>
 
 <script>
@@ -35,7 +35,7 @@ import CourseLearningObjectives from "./CourseLearningObjectives";
 import CourseOverview from "./CourseOverview";
 import CourseContentList from "./CourseContentList";
 import axios from 'axios';
-import { ref} from "@vue/reactivity";
+import {ref} from "@vue/reactivity";
 
 export default {
   name: "CourseLanding",
