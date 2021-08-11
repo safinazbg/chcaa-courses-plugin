@@ -21,5 +21,8 @@
 </script>
 
 <style scoped>
+.courseTags {
+  border-radius: 10px;
 
+}
 </style>

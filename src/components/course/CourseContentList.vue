@@ -1,10 +1,10 @@
 <template>
   <div class="courseContentList">
     <button
-        v-for="name in moduleNames"
-        :key="name"
-        class="uk-button uk-card-hover uk-width-1-1"
-        @click="openCourseModule($event, name)"
+        v-for="(name, index) in moduleNames"
+        :key="index"
+        class="uk-button uk-width-1-1 uk-margin-bottom uk-text-capitalize button"
+        @click="openCourseModule($event, index+1)"
     >{{name}}</button>
   </div>
 </template>
@@ -15,14 +15,18 @@ import {useRouter} from "vue-router";
 export default {
   name: "CourseContentList",
   props: {
+    courseName: {
+      type: String,
+      required: true
+    },
     moduleNames: {
       type: Array,
       required: true
     }
   },
-  setup() {
+  setup(props) {
     const router = useRouter()
-    const openCourseModule = (event, name) => router.push('/module/' + name)
+    const openCourseModule = (event, index) => router.push('/courses/' + props.courseName + '/module/Module' + index)
     return {
       openCourseModule,
     }
@@ -31,5 +35,11 @@ export default {
 </script>
 
 <style scoped>
-
+.button {
+  background-color: #1d3557;
+  color: white;
+}
+button:hover {
+  box-shadow: 0 8px 16px 0 rgb(29, 53, 87);
+}
 </style>

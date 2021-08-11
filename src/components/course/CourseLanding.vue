@@ -4,19 +4,27 @@
 
       <template v-slot:page>
 
-
         <LSections>
 
           <template v-slot:sections>
 
             <h1 class="uk-text-center">{{ title }}</h1>
-            <CourseOverview
+            <TitleAndIntro
+                title="Course Overview"
                 :subtitle="subtitle"
                 :body="body"
-            ></CourseOverview>
+            ></TitleAndIntro>
             <CourseTags :courseTags="['something']"></CourseTags>
-            <CourseLearningObjectives :objectives="objectives"></CourseLearningObjectives>
-            <CourseContentList :moduleNames="moduleNames"></CourseContentList>
+            <LTwoColumns>
+              <template v-slot:items>
+            <CoursePrerequisites :prerequisites="prerequisites"></CoursePrerequisites>
+            <CourseLearningObjectives :objectives="objectives" ></CourseLearningObjectives>
+              </template>
+            </LTwoColumns>
+            <CourseContentList
+                :courseName="courseName"
+                :moduleNames="moduleNames"
+            ></CourseContentList>
 
           </template>
 
@@ -28,11 +36,13 @@
 </template>
 
 <script>
+import LTwoColumns from "../layoutComponents/LTwoColumns";
+import CourseLearningObjectives from "./CourseLearningObjectives";
+import CoursePrerequisites from "./CoursePrerequisites";
 import LSections from "../layoutComponents/LSections";
 import LLandingPage from "../layoutComponents/LLandingPage";
 import CourseTags from "./CourseTags";
-import CourseLearningObjectives from "./CourseLearningObjectives";
-import CourseOverview from "./CourseOverview";
+import TitleAndIntro from "./TitleAndIntro";
 import CourseContentList from "./CourseContentList";
 import axios from 'axios';
 import {ref} from "@vue/reactivity";
@@ -43,9 +53,11 @@ export default {
     LSections,
     LLandingPage,
     CourseTags,
-    CourseLearningObjectives,
-    CourseOverview,
+    TitleAndIntro,
     CourseContentList,
+    CoursePrerequisites,
+    CourseLearningObjectives,
+    LTwoColumns,
   },
   props: {
     courseName: {
@@ -55,11 +67,12 @@ export default {
   },
   setup(props) {
     const courseTags = ref([])
-    const objectives = ref([])
+    const prerequisites = ref([])
     const moduleNames = ref([])
     const title = ref('')
     const subtitle = ref('')
     const body = ref('')
+    const objectives = ref([])
 
     axios.get(`https://raw.githubusercontent.com/safinazbg/coursePageData/master/courses/${props.courseName}/courseOverview.md`)
         .then(result => body.value = result.data)
@@ -68,9 +81,9 @@ export default {
         .then(result => {
 
           const course = result.data
-
-          courseTags.value = course.courseTags
           objectives.value = course.objectives
+          courseTags.value = course.courseTags
+          prerequisites.value = course.prerequisites
           title.value = course.title
           subtitle.value = course.subtitle
           moduleNames.value = course.moduleNames
@@ -79,11 +92,12 @@ export default {
 
     return {
       courseTags,
-      objectives,
+      prerequisites,
       title,
       subtitle,
       body,
-      moduleNames
+      moduleNames,
+      objectives
     }
   }
 }

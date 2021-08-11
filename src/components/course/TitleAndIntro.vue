@@ -1,18 +1,25 @@
 <template>
   <article class="uk-article courseOverview">
-    <h2 class="uk-article-title">Course Overview</h2>
+    <h2 class="uk-card-title">{{title}}</h2>
     <p class="uk-article-meta">{{ subtitle }}</p>
-    <p>{{ body }}</p>
+    <RawMarkdown :payload="body"></RawMarkdown>
   </article>
 </template>
 
 <script>
+import RawMarkdown from "../RawMarkdown";
 export default {
-  name: "CourseOverview",
+  name: "TitleAndIntro",
+  components:{
+    RawMarkdown,
+  },
   props: {
-    subtitle: {
+    title: {
       type: String,
       required: true
+    },
+    subtitle: {
+      type: String,
     },
     body: {
       type: String,

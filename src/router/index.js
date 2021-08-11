@@ -17,9 +17,15 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Courses.vue')
   },
   {
+    name: 'course',
+    path: '/courses/:courseName',
+    component: () => import(/* webpackChunkName: "course" */ '../components/course/CourseLanding.vue'),
+    props: true
+  },
+  {
     name: 'courseModule',
-    path: '/module/:moduleName',
-    component: () => import(/* webpackChunkName: "course" */ '../components/course/courseModule/CourseModuleLanding.vue'),
+    path: '/courses/:courseName/module/:moduleName',
+    component: () => import(/* webpackChunkName: "course" */ '../components/course/courseModule/ModuleLanding.vue'),
     props: true
   },
   {

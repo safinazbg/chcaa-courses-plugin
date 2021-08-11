@@ -41,11 +41,12 @@ export default {
 <style scoped>
 
 .objectives{
-  background-color: #fee0d2;
+  background-color: #fdd9b0;
 }
 
 .title {
-  background-color: #fc9272;
+  background-color: #f6ae2d;
+  color: white;
 }
 /*.column {*/
 /*  display: grid;*/
