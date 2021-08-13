@@ -1,6 +1,7 @@
 <template>
   <section class="coursePrerequisites prerequisites">
     <div class="uk-card-title uk-text-center title">Course Prerequisites</div>
+    <div class="padding-h">
       <LTwoColumns>
         <template v-slot:items>
           <LIconAndContent
@@ -17,6 +18,7 @@
           </LIconAndContent>
         </template>
       </LTwoColumns>
+    </div>
   </section>
 </template>
 
@@ -41,10 +43,14 @@ export default {
 
 <style scoped>
 .prerequisites {
-  background-color: #a8dadc;
+  background-color: rgba(69, 123, 157, 0.2);
+
 }
 .title{
   background-color: #457b9d;
-  color: white;
+  color: white
+}
+.padding-h {
+  padding: 0 1rem;
 }
 </style>

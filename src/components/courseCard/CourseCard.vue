@@ -1,35 +1,52 @@
 <template>
-    <div class="uk-card uk-card-default uk-card-hover uk-card-body" :style="{backgroundColor: color}">
-      <CourseLabel class="uk-align-right">{{course.level}}</CourseLabel>
-      <h3 class="uk-card-title">{{ course.title }}</h3>
-      <p class="uk-text-left">{{ snippet }}</p>
-      <div class="uk-padding-small">
-      <Button class="uk-align-right@l" name="go to course!"></Button>
-      </div>
-    </div>
+  <div class="courseCard uk-card-small uk-card-default uk-card-body">
+    <LSquareAndContent>
+      <template v-slot:square>
+        <img class="uk-border-radius-circle"
+             src="../../assets/jupyter.png" height="200" width="200"/>
+      </template>
+      <template v-slot:content>
+        <div class="">
+          <h1>{{ title }}</h1>
+          <p>{{ brief }}</p>
+        </div>
+      </template>
+    </LSquareAndContent>
+  </div>
 </template>
 
 <script>
-import CourseLabel from "../CourseLabel";
-
-import Button from "../buttons/Button";
-import {computed} from "@vue/reactivity";
-
+import LSquareAndContent from "../layoutComponents/LSquareAndContent";
+import {ref} from "vue";
+import axios from "axios";
 export default {
   name: "CourseCard",
-  props: ['course', 'color'],
+  props: {
+    courseName: {
+      type: String,
+      required: true
+    },
+  },
   components: {
-    Button,
-    CourseLabel
+    LSquareAndContent,
   },
 
   setup(props) {
-    const snippet = computed(() => {
-      return props.course.subtitle.substring(0, 200) + '...'
-    })
+    const title = ref('')
+    const brief = ref('')
+
+    axios.get(`https://raw.githubusercontent.com/safinazbg/coursePageData/master/courses/${props.courseName}/course.json`)
+        .then(result => {
+
+          const course = result.data
+          title.value = course.title
+          brief.value = course.brief
+
+        })
 
     return {
-      snippet
+      title,
+      brief
     }
   }
 }

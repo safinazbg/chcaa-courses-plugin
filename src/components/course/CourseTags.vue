@@ -1,28 +1,30 @@
 <template>
-  <div
-      class="uk-label courseTags"
-      v-for="tag in courseTags"
-      :key="tag"
-  >
-    {{tag}}
+  <div class="courseTags">
+    <div
+        class="uk-label uk-align-right"
+        v-for="tag in courseTags"
+        :key="tag"
+    >
+      {{ tag }}
+    </div>
   </div>
 </template>
 
 <script>
-  export default {
-    name: "CourseTags",
-    props: {
-      courseTags: {
-        type: Array,
-        required: true
-      }
+export default {
+  name: "CourseTags",
+  props: {
+    courseTags: {
+      type: Array,
+      required: true
     }
   }
+}
 </script>
 
-<style scoped>
-.courseTags {
-  border-radius: 10px;
-
+<style>
+.courseTags>* {
+  border-radius: 10px!important;
+  margin-left: 1rem !important;
 }
 </style>

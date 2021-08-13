@@ -1,21 +1,24 @@
 <template>
   <section class="objectives courseLearningObjectives">
     <div class="uk-card-title uk-text-center title">Learning Objectives</div>
-    <LTwoColumns>
-      <template v-slot:items>
-        <LIconAndContent
-            v-for="(objective, index) in objectives"
-            :key="index"
-        >
-          <template v-slot:icon>
-            <span class="uk-icon" uk-icon="check"></span>
-          </template>
-          <template v-slot:content>
-            <p>{{ objective }}</p>
-          </template>
-        </LIconAndContent>
-      </template>
-    </LTwoColumns>
+    <div class="padding-h">
+      <LTwoColumns>
+        <template v-slot:items>
+
+          <LIconAndContent
+              v-for="(objective, index) in objectives"
+              :key="index"
+          >
+            <template v-slot:icon>
+              <span class="uk-icon" uk-icon="check"></span>
+            </template>
+            <template v-slot:content>
+              <p>{{ objective }}</p>
+            </template>
+          </LIconAndContent>
+        </template>
+      </LTwoColumns>
+    </div>
   </section>
 </template>
 
@@ -40,7 +43,7 @@ export default {
 
 <style scoped>
 
-.objectives{
+.objectives {
   background-color: #fdd9b0;
 }
 
@@ -48,6 +51,11 @@ export default {
   background-color: #f6ae2d;
   color: white;
 }
+
+.padding-h {
+  padding: 0 1rem;
+}
+
 /*.column {*/
 /*  display: grid;*/
 /*  width: 100%;*/

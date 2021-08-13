@@ -1,12 +1,14 @@
 <template>
-  <div class="courseContentList">
-    <button
+  <ul class="courseContentList uk-list uk-list-divider">
+    <li
         v-for="(name, index) in moduleNames"
         :key="index"
-        class="uk-button uk-width-1-1 uk-margin-bottom uk-text-capitalize button"
+        class="uk-width-1-1 uk-margin-bottom uk-text-capitalize"
         @click="openCourseModule($event, index+1)"
-    >{{name}}</button>
-  </div>
+    >{{name}}
+    </li>
+  </ul>
+
 </template>
 
 <script>
@@ -36,10 +38,14 @@ export default {
 
 <style scoped>
 .button {
-  background-color: #1d3557;
+  background-color: #1f768f;
   color: white;
 }
-button:hover {
-  box-shadow: 0 8px 16px 0 rgb(29, 53, 87);
+li:hover {
+  background-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.16);
+}
+li {
+  cursor: pointer;
 }
 </style>

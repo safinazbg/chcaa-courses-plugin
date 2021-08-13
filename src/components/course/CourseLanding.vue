@@ -13,12 +13,13 @@
                 title="Course Overview"
                 :subtitle="subtitle"
                 :body="body"
+                :tags="['vue', 'JavaScript', 'uikit']"
             ></TitleAndIntro>
-            <CourseTags :courseTags="['something']"></CourseTags>
+
             <LTwoColumns>
               <template v-slot:items>
-            <CoursePrerequisites :prerequisites="prerequisites"></CoursePrerequisites>
-            <CourseLearningObjectives :objectives="objectives" ></CourseLearningObjectives>
+                <CoursePrerequisites :prerequisites="prerequisites"></CoursePrerequisites>
+                <CourseLearningObjectives :objectives="objectives"></CourseLearningObjectives>
               </template>
             </LTwoColumns>
             <CourseContentList
@@ -41,7 +42,6 @@ import CourseLearningObjectives from "./CourseLearningObjectives";
 import CoursePrerequisites from "./CoursePrerequisites";
 import LSections from "../layoutComponents/LSections";
 import LLandingPage from "../layoutComponents/LLandingPage";
-import CourseTags from "./CourseTags";
 import TitleAndIntro from "./TitleAndIntro";
 import CourseContentList from "./CourseContentList";
 import axios from 'axios';
@@ -52,7 +52,6 @@ export default {
   components: {
     LSections,
     LLandingPage,
-    CourseTags,
     TitleAndIntro,
     CourseContentList,
     CoursePrerequisites,
