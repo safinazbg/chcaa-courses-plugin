@@ -1,34 +1,42 @@
 <template>
   <section class="objectives courseLearningObjectives">
-    <div class="uk-card-title uk-text-center title">Learning Objectives</div>
-    <div class="padding-h">
-      <LTwoColumns>
-        <template v-slot:items>
+    <ColorCard
+        title="Learning Objectives"
+        colorTitle="white"
+    >
+      <template v-slot:content>
 
-          <LIconAndContent
-              v-for="(objective, index) in objectives"
-              :key="index"
-          >
-            <template v-slot:icon>
-              <span class="uk-icon" uk-icon="check"></span>
-            </template>
-            <template v-slot:content>
-              <p>{{ objective }}</p>
-            </template>
-          </LIconAndContent>
-        </template>
-      </LTwoColumns>
-    </div>
+        <LTwoColumns>
+          <template v-slot:items>
+
+            <LIconAndContent
+                v-for="(objective, index) in objectives"
+                :key="index"
+            >
+              <template v-slot:icon>
+                <span class="uk-icon" uk-icon="check"></span>
+              </template>
+              <template v-slot:content>
+                <p>{{ objective }}</p>
+              </template>
+            </LIconAndContent>
+          </template>
+        </LTwoColumns>
+
+      </template>
+    </ColorCard>
+
   </section>
 </template>
 
 <script>
 import LTwoColumns from "../layoutComponents/LTwoColumns";
 import LIconAndContent from "../layoutComponents/LIconAndContent";
-
+import ColorCard from "../layoutComponents/ColorCard";
 export default {
   name: "CourseLearningObjectives",
   components: {
+    ColorCard,
     LIconAndContent,
     LTwoColumns,
   },
@@ -42,26 +50,5 @@ export default {
 </script>
 
 <style scoped>
-
-.objectives {
-  background-color: #fdd9b0;
-}
-
-.title {
-  background-color: #f6ae2d;
-  color: white;
-}
-
-.padding-h {
-  padding: 0 1rem;
-}
-
-/*.column {*/
-/*  display: grid;*/
-/*  width: 100%;*/
-/*  padding: 1rem;*/
-/*  grid-template-columns: 1fr;*/
-/*  grid-gap: 1rem;*/
-/*}*/
 
 </style>

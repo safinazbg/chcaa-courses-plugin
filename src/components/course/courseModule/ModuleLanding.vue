@@ -7,11 +7,11 @@
         <LSections>
           <template v-slot:sections>
 
-            <ModuleBreadCrumbs
+            <BreadCrumbs
                 :courseName="courseName"
                 :moduleName="moduleName"
             >
-            </ModuleBreadCrumbs>
+            </BreadCrumbs>
 
             <TitleAndIntro
                 :title="title"
@@ -41,7 +41,7 @@
 import Image from "../../Image";
 import ModulePreviousNextButtons from "./ModulePreviousNextButtons";
 import TitleAndIntro from "../TitleAndIntro";
-import ModuleBreadCrumbs from "./ModuleBreadCrumbs";
+import BreadCrumbs from "../../BreadCrumbs";
 import LSections from "../../layoutComponents/LSections";
 import LLandingPage from "../../layoutComponents/LLandingPage";
 import axios from "axios";
@@ -53,7 +53,7 @@ export default {
     Image,
     LLandingPage,
     LSections,
-    ModuleBreadCrumbs,
+    BreadCrumbs,
     TitleAndIntro,
     ModulePreviousNextButtons,
   },

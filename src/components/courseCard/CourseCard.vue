@@ -3,7 +3,7 @@
     <LSquareAndContent>
       <template v-slot:square>
         <img class="uk-border-radius-circle"
-             src="../../assets/jupyter.png" height="200" width="200"/>
+             :src="logo" height="200" width="200"/>
       </template>
       <template v-slot:content>
         <div class="">
@@ -34,6 +34,7 @@ export default {
   setup(props) {
     const title = ref('')
     const brief = ref('')
+    const logo = ref('')
 
     axios.get(`https://raw.githubusercontent.com/safinazbg/coursePageData/master/courses/${props.courseName}/course.json`)
         .then(result => {
@@ -41,12 +42,14 @@ export default {
           const course = result.data
           title.value = course.title
           brief.value = course.brief
+          logo.value = course.logoUrl
 
         })
 
     return {
       title,
-      brief
+      brief,
+      logo,
     }
   }
 }

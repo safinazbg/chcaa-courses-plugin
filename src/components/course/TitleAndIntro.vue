@@ -6,7 +6,10 @@
         :payload="body"
         class="uk-text-justify uk-text-emphasis"
     ></RawMarkdown>
-    <CourseTags :courseTags="tags"></CourseTags>
+    <CourseTags
+        v-if="tags"
+        :courseTags="tags"
+    ></CourseTags>
   </article>
 </template>
 
@@ -32,7 +35,7 @@ export default {
       required: true
     },
     tags: {
-
+      type: Array,
     }
   }
 }

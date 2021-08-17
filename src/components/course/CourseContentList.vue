@@ -1,13 +1,16 @@
 <template>
-  <ul class="courseContentList uk-list uk-list-divider">
-    <li
-        v-for="(name, index) in moduleNames"
-        :key="index"
-        class="uk-width-1-1 uk-margin-bottom uk-text-capitalize"
-        @click="openCourseModule($event, index+1)"
-    >{{name}}
-    </li>
-  </ul>
+  <div class="uk-card uk-card-default uk-card-body">
+    <h3>Course Modules</h3>
+    <ul class="courseContentList uk-list uk-list-divider">
+      <li
+          v-for="(name, index) in moduleNames"
+          :key="index"
+          class="uk-width-1-1 uk-margin-bottom uk-text-capitalize"
+          @click="openCourseModule($event, index+1)"
+      >{{name}}
+      </li>
+    </ul>
+  </div>
 
 </template>
 

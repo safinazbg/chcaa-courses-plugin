@@ -7,7 +7,7 @@
         <LSections>
 
           <template v-slot:sections>
-
+            <BreadCrumbs :courseName="courseName"></BreadCrumbs>
             <h1 class="uk-text-center">{{ title }}</h1>
             <TitleAndIntro
                 title="Course Overview"
@@ -20,12 +20,16 @@
               <template v-slot:items>
                 <CoursePrerequisites :prerequisites="prerequisites"></CoursePrerequisites>
                 <CourseLearningObjectives :objectives="objectives"></CourseLearningObjectives>
+
+                <CourseContentList
+                    :courseName="courseName"
+                    :moduleNames="moduleNames"
+                ></CourseContentList>
+                <CourseResources
+                    :courseName="courseName"
+                ></CourseResources>
               </template>
             </LTwoColumns>
-            <CourseContentList
-                :courseName="courseName"
-                :moduleNames="moduleNames"
-            ></CourseContentList>
 
           </template>
 
@@ -46,10 +50,13 @@ import TitleAndIntro from "./TitleAndIntro";
 import CourseContentList from "./CourseContentList";
 import axios from 'axios';
 import {ref} from "@vue/reactivity";
-
+import BreadCrumbs from "../BreadCrumbs";
+import CourseResources from "./CourseResources";
 export default {
   name: "CourseLanding",
   components: {
+    CourseResources,
+    BreadCrumbs,
     LSections,
     LLandingPage,
     TitleAndIntro,
