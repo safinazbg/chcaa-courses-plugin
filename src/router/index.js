@@ -1,5 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Components from "../views/Components.vue";
+import {createRouter, createWebHistory} from 'vue-router'
 
 const routes = [
   {
@@ -21,11 +20,6 @@ const routes = [
     path: '/courses/:courseName/module/:moduleName',
     component: () => import(/* webpackChunkName: "course" */ '../components/course/courseModule/ModuleLanding.vue'),
     props: true
-  },
-  {
-    path: '/components',
-    name: 'Components',
-    component: Components,
   },
 ]
 

@@ -13,7 +13,7 @@
 
 <script>
 export default {
-name: "ModulePreviousNextButtons"
+  name: "ModulePreviousNextButtons"
 }
 </script>
 
