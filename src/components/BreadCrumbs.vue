@@ -4,7 +4,6 @@
       <li>
         <a
             @click="goHome()"
-            class="uk-text-success"
         >Home</a>
       </li>
       <li>
@@ -75,5 +74,6 @@ export default {
 <style scoped>
 a {
   font-size: 130%;
+  color: #134B7D;
 }
 </style>

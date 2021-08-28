@@ -1,11 +1,11 @@
 <template>
   <div class="uk-card uk-card-default uk-card-body">
     <h3>Course Modules</h3>
-    <ul class="courseContentList uk-list uk-list-divider">
+    <ul class="courseContentList uk-list uk-list-striped">
       <li
           v-for="(name, index) in moduleNames"
           :key="index"
-          class="uk-width-1-1 uk-margin-bottom uk-text-capitalize"
+          class="uk-width-1-1 uk-text-capitalize"
           @click="openCourseModule($event, index+1)"
       >{{name}}
       </li>
@@ -46,7 +46,7 @@ export default {
 }
 li:hover {
   background-color: rgba(0, 0, 0, 0.08) !important;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.08);
 }
 li {
   cursor: pointer;

@@ -1,44 +1,38 @@
 <template>
-  <section class="coursePrerequisites prerequisites">
-    <ColorCard
-        title="Course Prerequisites"
-        background-color-title="#457b9d"
-        color-title="white"
-        background-color-content="rgba(69, 123, 157, 0.2)"
-    >
-      <template v-slot:content>
+  <section class="coursePrerequisites prerequisites uk-card-default">
 
-        <LTwoColumns>
-          <template v-slot:items>
-            <LIconAndContent
-                v-for="(item, index) in prerequisites"
-                :key="index"
-            >
-              <template v-slot:icon>
-                <span class="uk-icon" uk-icon="bolt"></span>
-              </template>
+    <div class="uk-text-center title">Course Prerequisites</div>
+    <div class="padding-h">
 
-              <template v-slot:content>
-                <p>{{ item }}</p>
-              </template>
-            </LIconAndContent>
-          </template>
-        </LTwoColumns>
+      <LTwoColumns>
+        <template v-slot:items>
+          <LIconAndContent
+              v-for="(item, index) in prerequisites"
+              :key="index"
+          >
+            <template v-slot:icon>
+              <span class="uk-icon" uk-icon="bolt"></span>
+            </template>
 
-      </template>
-    </ColorCard>
+            <template v-slot:content>
+              <p>{{ item }}</p>
+            </template>
+          </LIconAndContent>
+        </template>
+      </LTwoColumns>
+
+    </div>
+
   </section>
 </template>
 
 <script>
 import LIconAndContent from "../layoutComponents/LIconAndContent";
 import LTwoColumns from "../layoutComponents/LTwoColumns";
-import ColorCard from "../layoutComponents/ColorCard";
 
 export default {
   name: "CoursePrerequisites",
   components: {
-    ColorCard,
     LTwoColumns,
     LIconAndContent,
   },
@@ -53,16 +47,16 @@ export default {
 
 <style scoped>
 .prerequisites {
-  background-color: rgba(69, 123, 157, 0.2);
-
 }
 
 .title {
-  background-color: #457b9d;
+  font-size: 130%;
+  background-color: #003D73;
   color: white
 }
 
 .padding-h {
-  padding: 0 1rem;
+  min-height: 180px!important;
+  padding: 1rem 1rem;
 }
 </style>

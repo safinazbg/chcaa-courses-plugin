@@ -18,6 +18,7 @@
 
             <LTwoColumns>
               <template v-slot:items>
+
                 <CoursePrerequisites :prerequisites="prerequisites"></CoursePrerequisites>
                 <CourseLearningObjectives :objectives="objectives"></CourseLearningObjectives>
 
@@ -28,6 +29,7 @@
                 <CourseResources
                     :courseName="courseName"
                 ></CourseResources>
+
               </template>
             </LTwoColumns>
 
@@ -52,6 +54,7 @@ import axios from 'axios';
 import {ref} from "@vue/reactivity";
 import BreadCrumbs from "../BreadCrumbs";
 import CourseResources from "./CourseResources";
+
 export default {
   name: "CourseLanding",
   components: {

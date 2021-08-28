@@ -6,7 +6,7 @@
     >{{ title }}
     </div>
     <div
-        class="padding-h content"
+        class="padding-h"
         :style="contentStyle"
     >
       <slot name="content">
@@ -61,9 +61,12 @@ export default {
 </script>
 
 <style scoped>
-
+.colorCard {
+  align-self: stretch;
+}
 .padding-h {
   padding: 0 1rem;
+  height: 100%;
 }
 
 </style>

@@ -26,5 +26,7 @@ export default {
 .courseTags>* {
   border-radius: 10px!important;
   margin-left: 1rem !important;
+  background-color: #F2AF13!important;
+  color: black!important;
 }
 </style>
