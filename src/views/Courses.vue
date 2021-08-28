@@ -2,7 +2,6 @@
   <div class="courses">
     <LLandingPage>
       <template v-slot:page>
-
         <h1 class="uk-text-center">Courses</h1>
         <LTwoColumns>
           <template v-slot:items>
