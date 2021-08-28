@@ -1,4 +1,4 @@
-# chca
+# Courses plugin for the CHCAA app
 
 ## Project setup
 ```
