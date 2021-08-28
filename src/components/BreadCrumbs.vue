@@ -3,13 +3,14 @@
     <ul class="uk-breadcrumb">
       <li>
         <a
+            class="clickable"
             @click="goHome()"
         >Home</a>
       </li>
       <li>
         <a
             @click="gotoCourse()"
-            :class="{'uk-text-success': moduleTitle}"
+            :class="{clickable: moduleTitle}"
         >{{ courseTitle }}</a>
       </li>
       <li v-if="moduleTitle"><a>{{ moduleTitle }}</a></li>
@@ -74,6 +75,10 @@ export default {
 <style scoped>
 a {
   font-size: 130%;
+  cursor: unset;
+}
+.clickable {
   color: #134B7D;
+  cursor: pointer;
 }
 </style>
