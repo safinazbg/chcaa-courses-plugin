@@ -17,7 +17,7 @@ export default {
   props: {
     lines: {
       type: Array,
-      default: ()=>[],
+      default: () => [],
     }
   },
   components: {

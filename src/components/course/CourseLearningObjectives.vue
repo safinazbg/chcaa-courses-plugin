@@ -39,7 +39,7 @@
 import LinesEditor from "@/components/LinesEditor";
 import LTwoColumns from "../layoutComponents/LTwoColumns";
 import LIconAndContent from "../layoutComponents/LIconAndContent";
-import {ref} from "@vue/reactivity";
+import {computed, ref} from "@vue/reactivity";
 
 export default {
   name: "CourseLearningObjectives",
@@ -59,8 +59,9 @@ export default {
     }
   },
   setup(props) {
-    const objectivesList = ref(props.objectives)
-    const onObjectivesUpdate = objectives => objectivesList.value = objectives
+    const updatedList = ref([])
+    const objectivesList = computed(() => updatedList.value.length ? updatedList.value : props.objectives)
+    const onObjectivesUpdate = objectives => updatedList.value = objectives
     return {
       objectivesList,
       onObjectivesUpdate,
