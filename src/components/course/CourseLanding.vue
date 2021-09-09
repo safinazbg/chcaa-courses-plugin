@@ -20,7 +20,7 @@
               <template v-slot:items>
 
                 <CoursePrerequisites :prerequisites="prerequisites"></CoursePrerequisites>
-                <CourseLearningObjectives :objectives="objectives"></CourseLearningObjectives>
+                <CourseLearningObjectives :objectives="objectives" :show-editor="true"></CourseLearningObjectives>
 
                 <CourseContentList
                     :courseName="courseName"

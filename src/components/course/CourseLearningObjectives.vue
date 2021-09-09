@@ -4,11 +4,21 @@
     <div class="uk-text-center title">Learning Objectives</div>
     <div class="padding-h content">
 
+      <div
+          class="editor"
+          v-if="showEditor"
+      >
+        <LinesEditor
+            :lines="objectivesList"
+            @update="onObjectivesUpdate"
+        ></LinesEditor>
+      </div>
+
       <LTwoColumns>
         <template v-slot:items>
 
           <LIconAndContent
-              v-for="(objective, index) in objectives"
+              v-for="(objective, index) in objectivesList"
               :key="index"
           >
             <template v-slot:icon>
@@ -26,19 +36,34 @@
 </template>
 
 <script>
+import LinesEditor from "@/components/LinesEditor";
 import LTwoColumns from "../layoutComponents/LTwoColumns";
 import LIconAndContent from "../layoutComponents/LIconAndContent";
+import {ref} from "@vue/reactivity";
 
 export default {
   name: "CourseLearningObjectives",
   components: {
     LIconAndContent,
     LTwoColumns,
+    LinesEditor,
   },
   props: {
     objectives: {
       type: Array,
       required: true
+    },
+    showEditor: {
+      type: Boolean,
+      default: false
+    }
+  },
+  setup(props) {
+    const objectivesList = ref(props.objectives)
+    const onObjectivesUpdate = objectives => objectivesList.value = objectives
+    return {
+      objectivesList,
+      onObjectivesUpdate,
     }
   }
 }
@@ -47,6 +72,7 @@ export default {
 <style scoped>
 .courseLearningObjectives {
 }
+
 .title {
   font-size: 130%;
   background-color: #003D73;
@@ -54,7 +80,7 @@ export default {
 }
 
 .content {
-  min-height: 180px!important;
+  min-height: 180px !important;
   /*background-color: #E6F2FC;*/
   padding: 1rem 1rem;
 }
