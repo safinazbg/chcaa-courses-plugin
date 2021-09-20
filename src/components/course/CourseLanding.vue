@@ -51,7 +51,7 @@ import LLandingPage from "../layoutComponents/LLandingPage";
 import TitleAndIntro from "./TitleAndIntro";
 import CourseContentList from "./CourseContentList";
 import axios from 'axios';
-import {ref} from "@vue/reactivity";
+import { ref } from "@vue/reactivity";
 import BreadCrumbs from "../BreadCrumbs";
 import CourseResources from "./CourseResources";
 
