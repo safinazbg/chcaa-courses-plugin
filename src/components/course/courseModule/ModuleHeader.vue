@@ -1,6 +1,5 @@
 <template>
 <article class="moduleHeader">
-
   <h1 class="uk-article-title">Session 1</h1>
 </article>
 </template>
