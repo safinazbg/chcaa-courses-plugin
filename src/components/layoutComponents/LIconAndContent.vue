@@ -21,9 +21,9 @@ export default {
 
 <style scoped>
 .iconAndContent {
-  display: grid;
-  grid-template-columns: 1rem 1fr;
-  grid-gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  /*column-gap: 1rem;*/
 }
 
 
