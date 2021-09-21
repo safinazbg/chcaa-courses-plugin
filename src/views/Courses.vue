@@ -19,11 +19,9 @@
     </LLandingPage>
   </div>
 
-  <LinesEditor></LinesEditor>
 </template>
 
 <script>
-import LinesEditor from "@/components/LinesEditor";
 import LLandingPage from "../components/layoutComponents/LLandingPage";
 import CourseCard from "../components/courseCard/CourseCard";
 import {ref} from "@vue/reactivity";
@@ -37,7 +35,6 @@ export default {
     CourseCard,
     LLandingPage,
     LTwoColumns,
-    LinesEditor,
   },
   setup() {
     const router = useRouter()
