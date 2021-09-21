@@ -4,6 +4,11 @@
         v-model="linesText"
         @input="onInput"
     ></AutoSizeTextarea>
+    <div class="list">
+      <div class="item" v-for="(item, index) in lines" :key="index">
+        {{item}}
+      </div>
+    </div>
   </div>
 </template>
 
@@ -17,7 +22,13 @@ export default {
   props: {
     lines: {
       type: Array,
-      default: () => [],
+      default: () => [
+          'ásdlinsl dli Dali daásdlinsl dli Dali dal iadN ásdlinsl dli Dali dal iadN l iadN ad',
+          'ásdlinsl dli Dali dal ásdlinsl dli Dali dal iadN ásdlinsl dli Dali dal iadN iadN ad',
+          'ásdlinsl dli Dali dal iadN ásdlinsl dli Dali dal iadN ásdlinsl dli Dali dal iadN ad',
+          'ásdlinsl dli Dali dal iadN ad',
+          'ásdlinsl dli Dali dal ásdlinsl dli Dali dal iadN ásdlinsl dli Dali dal iadN iadN ad',
+      ],
     }
   },
   components: {
@@ -41,5 +52,10 @@ export default {
 </script>
 
 <style scoped>
-
+.list {
+  columns: 2 auto;
+}
+.list * {
+  margin-bottom: .5rem;
+}
 </style>
