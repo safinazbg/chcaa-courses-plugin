@@ -18,11 +18,13 @@
       </template>
     </LLandingPage>
   </div>
-  <SlideShow></SlideShow>
+
+  <Slider></Slider>
+
 </template>
 
 <script>
-import SlideShow from "@/components/SlideShow";
+import Slider from "@/components/carousel/Slider";
 import LLandingPage from "../components/layoutComponents/LLandingPage";
 import CourseCard from "../components/courseCard/CourseCard";
 import {ref} from "@vue/reactivity";
@@ -36,7 +38,7 @@ export default {
     CourseCard,
     LLandingPage,
     LTwoColumns,
-    SlideShow
+    Slider,
   },
   setup() {
     const router = useRouter()
@@ -44,11 +46,12 @@ export default {
 
     axios.get(`https://raw.githubusercontent.com/safinazbg/coursePageData/master/courses/list.json`)
         .then(result => {
-          console.log(result.data.length, )
+          console.log(result.data.length,)
           courseNames.value = result.data
         })
 
     const openCourse = name => router.push(`/courses/${name}`)
+
 
     return {
       courseNames,
@@ -60,6 +63,5 @@ export default {
 </script>
 
 <style scoped>
-
 
 </style>
