@@ -1,48 +1,54 @@
 <template>
   <div class="courseLanding">
-    <LLandingPage>
+    <CourseNavigation>
+      <template v-slot:content>
 
-      <template v-slot:page>
+        <LLandingPage>
 
-        <LSections>
+          <template v-slot:page>
 
-          <template v-slot:sections>
-            <BreadCrumbs :courseName="courseName"></BreadCrumbs>
-            <h1 class="uk-text-center">{{ title }}</h1>
-            <TitleAndIntro
-                title="Course Overview"
-                :subtitle="subtitle"
-                :body="body"
-                :tags="['vue', 'JavaScript', 'uikit']"
-            ></TitleAndIntro>
+            <LSections>
 
-            <LTwoColumns>
-              <template v-slot:items>
+              <template v-slot:sections>
+                <BreadCrumbs :courseName="courseName"></BreadCrumbs>
+                <h1 class="uk-text-center">{{ title }}</h1>
+                <TitleAndIntro
+                    title="Course Overview"
+                    :subtitle="subtitle"
+                    :body="body"
+                    :tags="['vue', 'JavaScript', 'uikit']"
+                ></TitleAndIntro>
 
-                <CoursePrerequisites :prerequisites="prerequisites"></CoursePrerequisites>
-                <CourseLearningObjectives :objectives="objectives" :show-editor="true"></CourseLearningObjectives>
+                <LTwoColumns>
+                  <template v-slot:items>
 
-                <CourseContentList
-                    :courseName="courseName"
-                    :moduleNames="moduleNames"
-                ></CourseContentList>
-                <CourseResources
-                    :courseName="courseName"
-                ></CourseResources>
+                    <CoursePrerequisites :prerequisites="prerequisites"></CoursePrerequisites>
+                    <CourseLearningObjectives :objectives="objectives" :show-editor="true"></CourseLearningObjectives>
+
+                    <CourseContentList
+                        :courseName="courseName"
+                        :moduleNames="moduleNames"
+                    ></CourseContentList>
+                    <CourseResources
+                        :courseName="courseName"
+                    ></CourseResources>
+
+                  </template>
+                </LTwoColumns>
 
               </template>
-            </LTwoColumns>
 
+            </LSections>
           </template>
 
-        </LSections>
+        </LLandingPage>
       </template>
-
-    </LLandingPage>
+    </CourseNavigation>
   </div>
 </template>
 
 <script>
+import CourseNavigation from "@/components/course/CourseNavigation";
 import LTwoColumns from "../layoutComponents/LTwoColumns";
 import CourseLearningObjectives from "./CourseLearningObjectives";
 import CoursePrerequisites from "./CoursePrerequisites";
@@ -51,13 +57,14 @@ import LLandingPage from "../layoutComponents/LLandingPage";
 import TitleAndIntro from "./TitleAndIntro";
 import CourseContentList from "./CourseContentList";
 import axios from 'axios';
-import { ref } from "@vue/reactivity";
+import {ref} from "@vue/reactivity";
 import BreadCrumbs from "../BreadCrumbs";
 import CourseResources from "./CourseResources";
 
 export default {
   name: "CourseLanding",
   components: {
+    CourseNavigation,
     CourseResources,
     BreadCrumbs,
     LSections,
