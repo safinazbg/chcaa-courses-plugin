@@ -3,7 +3,7 @@
   <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow>
     <ul class="uk-slideshow-items" v-for="slide in slides" :key="slide">
       <li>
-        <img :src="require(`@/assets/${slide}.png`)"uk-cover>
+        <img :src="require(`@/assets/${slide}.png`)" uk-cover>
       </li>
 
     </ul>
@@ -22,7 +22,7 @@ export default {
   setup() {
     const slides = ref(['git', 'jupyter', 'logo'])
     return {
-      slide
+      slides
     }
   }
 }
