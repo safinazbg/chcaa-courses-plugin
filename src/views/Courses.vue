@@ -18,13 +18,9 @@
       </template>
     </LLandingPage>
   </div>
-
-  <Slider></Slider>
-
 </template>
 
 <script>
-import Slider from "@/components/carousel/Slider";
 import LLandingPage from "../components/layoutComponents/LLandingPage";
 import CourseCard from "../components/courseCard/CourseCard";
 import {ref} from "@vue/reactivity";
@@ -38,7 +34,6 @@ export default {
     CourseCard,
     LLandingPage,
     LTwoColumns,
-    Slider,
   },
   setup() {
     const router = useRouter()
